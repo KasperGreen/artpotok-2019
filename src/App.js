@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { hot } from 'react-hot-loader/root'
 
 class App extends Component {
   render() {
@@ -9,7 +10,7 @@ class App extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
-            Поток Арт-Кемпинг
+            Поток Арт-Кемпинг!!!
           </p>
           <a
             className="App-link"
@@ -25,4 +26,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default hot(App);
