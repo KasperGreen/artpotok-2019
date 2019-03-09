@@ -120,21 +120,17 @@
     ]
   },
   "babel": {
+    "presets": [
+      "react-app",
+      "@emotion/babel-preset-css-prop"
+    ],
     "env": {
       "production": {
-        "presets": [
-          "react-app",
-          "@emotion/babel-preset-css-prop"
-        ],
         "plugins": [
           "emotion"
         ]
       },
       "development": {
-        "presets": [
-          "react-app",
-          "@emotion/babel-preset-css-prop"
-        ],
         "plugins": [
           [
             "emotion",
