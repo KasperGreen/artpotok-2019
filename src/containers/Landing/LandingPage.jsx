@@ -8,7 +8,7 @@ export default class LandingPage extends Component {
   render () {
     return (
       <Fragment>
-
+          <h1>Ололо!</h1>
       </Fragment>
     )
   }
