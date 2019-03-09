@@ -2,6 +2,9 @@ import { css } from '@emotion/core'
 
 export default css`
 
+#root {
+opacity: 1;
+}
 body {
   margin: 0;
   padding: 0;
