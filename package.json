@@ -2,6 +2,7 @@
   "name": "artpotok-2019",
   "version": "0.1.0",
   "private": true,
+  "homepage" : "https://new.artpotok.com",
   "dependencies": {
     "@babel/core": "7.3.4",
     "@svgr/webpack": "4.1.0",
