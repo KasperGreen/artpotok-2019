@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import landing_wrapper_CSS from 'containers/Landing/_css/landing_wrapper_CSS'
 import background_portrait from './_images/background_portrait.png'
 import background_portrait_420 from './_images/background_portrait_420.png'
@@ -6,12 +6,13 @@ import background_portrait_720 from './_images/background_portrait_720.png'
 import background_landscape from './_images/background_landscape.png'
 import background_landscape_1400 from './_images/background_landscape_1400.png'
 import LandingPageBackground from 'containers/Landing/LandingPageBackground'
+import LandingPagePlate from 'containers/Landing/Plate/LandingPagePlate'
 
 export default class LandingPage extends Component {
   state = {
     window_width: window.innerWidth,
     window_height: window.innerHeight,
-    background_is_loaded: false
+    background_is_loaded: false,
   }
 
   render () {
@@ -32,7 +33,10 @@ export default class LandingPage extends Component {
     return (
       <div css={landing_wrapper_CSS}>
         {background_is_loaded &&
-        <LandingPageBackground {...{background_image: actual_background}} />
+        <Fragment>
+          <LandingPageBackground {...{background_image: actual_background}} />
+          <LandingPagePlate />
+        </Fragment>
         }
         <h1>real width: {width}</h1>
         <h1>width: {window_width}</h1>
@@ -152,8 +156,6 @@ export default class LandingPage extends Component {
 
     const image = new Image()
     image.onload = () => {
-      console.log('%c →→→→ ', 'color: green', 'loaded! ←  | ')
-
       this.setState(
         (state) => {
           return {
