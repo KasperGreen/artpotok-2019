@@ -5,10 +5,16 @@ export default class LandingPage extends Component {
     window_width: window.innerWidth,
     window_height: window.innerHeight
   }
+
   render () {
+    const {
+      state: {
+        window_width,
+      }
+    } = this
     return (
       <Fragment>
-          <h1>Ололо!</h1>
+        <h1>{window_width}</h1>
       </Fragment>
     )
   }
