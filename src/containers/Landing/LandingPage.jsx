@@ -1,19 +1,10 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
+import landing_wrapper_CSS from 'containers/Landing/_css/landing_wrapper_CSS'
 
 export default class LandingPage extends Component {
   state = {
     window_width: window.innerWidth,
     window_height: window.innerHeight
-  }
-
-  get ratio() {
-    const {
-      state: {
-        window_height,
-        window_width
-      }
-    } = this
-    return Math.max(window_height, window_width) / Math.min(window_height, window_width)
   }
 
   render () {
@@ -28,10 +19,11 @@ export default class LandingPage extends Component {
       }
     } = this
     return (
-      <Fragment>
+      <div css={landing_wrapper_CSS}>
         <h1>width: {window_width}</h1>
         <h1>height: {window_height}</h1>
         <h1>ratio: {ratio}</h1>
+        <h1>puixel ratio: {window.devicePixelRatio}</h1>
         {is_landscape &&
         <h1>is_landscape</h1>
         }
@@ -39,7 +31,7 @@ export default class LandingPage extends Component {
         <h1>is_portrait</h1>
         }
         <h1>orientation: {orientation}</h1>
-      </Fragment>
+      </div>
     )
   }
 
@@ -65,8 +57,23 @@ export default class LandingPage extends Component {
     return window_width >= window_height ? 'landscape' : 'portrait'
   }
 
+  get ratio () {
+    const {
+      state: {
+        window_height,
+        window_width
+      }
+    } = this
+    return Math.max(window_height, window_width) / Math.min(window_height, window_width)
+  }
+
   _addResizeEvent () {
     window.addEventListener('resize', this.resizeEvent)
+    return this
+  }
+
+  _loadBackground () {
+
     return this
   }
 
