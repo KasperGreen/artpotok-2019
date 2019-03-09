@@ -5,11 +5,14 @@
   "homepage": "https://new.artpotok.com",
   "dependencies": {
     "@babel/core": "7.3.4",
+    "@emotion/babel-preset-css-prop": "^10.0.7",
+    "@emotion/core": "^10.0.7",
     "@svgr/webpack": "4.1.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "10.0.1",
     "babel-jest": "24.3.1",
     "babel-loader": "8.0.5",
+    "babel-plugin-emotion": "^10.0.7",
     "babel-plugin-named-asset-import": "^0.3.1",
     "babel-preset-react-app": "^7.0.2",
     "bfj": "6.1.1",
@@ -114,11 +117,31 @@
     ]
   },
   "babel": {
-    "presets": [
-      "react-app"
-    ],
-    "plugins": [
-      "react-hot-loader/babel"
-    ]
+    "env": {
+      "production": {
+        "presets": [
+          "react-app",
+          "@emotion/babel-preset-css-prop"
+        ],
+        "plugins": [
+          "emotion"
+        ]
+      },
+      "development": {
+        "presets": [
+          "react-app",
+          "@emotion/babel-preset-css-prop"
+        ],
+        "plugins": [
+          [
+            "emotion",
+            {
+              "sourceMap": true
+            }
+          ],
+          "react-hot-loader/babel"
+        ]
+      }
+    }
   }
 }

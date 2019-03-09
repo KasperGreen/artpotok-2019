@@ -1,16 +1,19 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import logo from './logo.svg'
+import './App.css'
 import { hot } from 'react-hot-loader/root'
+import { css, Global } from '@emotion/core'
+import root_CSS from 'styles/root_CSS'
 
 class App extends Component {
-  render() {
+  render () {
     return (
       <div className="App">
+        <Global styles={root_CSS} />
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Поток Арт-Кемпинг!!!
+          <p css={css`color: red;`}>
+            Поток Арт-Кемпинг!
           </p>
           <a
             className="App-link"
@@ -22,8 +25,8 @@ class App extends Component {
           </a>
         </header>
       </div>
-    );
+    )
   }
 }
 
-export default hot(App);
+export default hot(App)
