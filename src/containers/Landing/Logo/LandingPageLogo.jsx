@@ -20,6 +20,8 @@ export default class LandingPageLogo extends Component {
       width,
       height,
       custom_styles,
+      top,
+      left,
       state: {
         is_loaded
       },
@@ -27,6 +29,7 @@ export default class LandingPageLogo extends Component {
         is_landscape,
         is_portrait,
         ratio,
+        is_square,
         ...other_props
       }
     } = this
@@ -40,7 +43,9 @@ export default class LandingPageLogo extends Component {
             custom_styles,
             {
               width,
-              height
+              height,
+              top,
+              left
             }
           ]}
         >
@@ -56,14 +61,15 @@ export default class LandingPageLogo extends Component {
     const {
       props: {
         is_landscape,
+        is_square,
         ratio
       }
     } = this
     if (is_landscape) {
-      if (ratio > 1.6) {
-        return landing_page_logo_wrapper_wide_landscape_CSS
-      } else {
+      if (is_square) {
         return landing_page_logo_wrapper_square_landscape_CSS
+      } else {
+        return landing_page_logo_wrapper_wide_landscape_CSS
       }
     } else {
       return landing_page_logo_wrapper_portrait_CSS
@@ -85,6 +91,52 @@ export default class LandingPageLogo extends Component {
       return (window.innerHeight * .9)
     } else {
       return this.width * height / width
+    }
+  }
+
+  get left () {
+    const {
+      props: {
+        is_landscape,
+        is_square,
+        ratio
+      }
+    } = this
+    if (is_landscape) {
+      if (is_square) {
+        return window.innerWidth
+      } else {
+        return window.innerWidth * 0.5
+      }
+    } else {
+      if (is_square) {
+        return window.innerWidth * 0.5
+      } else {
+        return window.innerWidth * 0.5
+      }
+    }
+  }
+
+  get top () {
+    const {
+      props: {
+        is_landscape,
+        is_square,
+        ratio
+      }
+    } = this
+    if (is_landscape) {
+      if (is_square) {
+        return window.innerHeight * 0.5
+      } else {
+        return window.innerHeight * 0.5
+      }
+    } else {
+      if (is_square) {
+        return window.innerHeight * 0.5
+      } else {
+        return window.innerHeight * 0.5
+      }
     }
   }
 

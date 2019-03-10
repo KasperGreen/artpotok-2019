@@ -27,6 +27,7 @@ export default class LandingPage extends Component {
       pixel_ratio,
       width,
       actual_background,
+      is_square,
       state: {
         window_width,
         window_height,
@@ -44,7 +45,7 @@ export default class LandingPage extends Component {
             data-depth={'0.025'}
             {...{background_image: actual_background}} />
           <LandingPageLogo
-            {...{is_landscape, ratio, is_portrait}}
+            {...{is_landscape, ratio, is_portrait, is_square}}
             data-depth={'0.12'}
           />
           <LandingPagePlate
@@ -128,6 +129,10 @@ export default class LandingPage extends Component {
 
   get is_portrait () {
     return this.orientation === 'portrait'
+  }
+
+  get is_square () {
+    return this.ratio < 1.6
   }
 
   get orientation () {
