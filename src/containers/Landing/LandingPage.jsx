@@ -49,6 +49,7 @@ export default class LandingPage extends Component {
             data-depth={'0.12'}
           />
           <LandingPagePlate
+            {...{is_landscape, ratio, is_portrait, is_square}}
             data-depth={'0.18'}
           />
         </Fragment>

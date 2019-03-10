@@ -12,8 +12,7 @@ export default class LandingPagePlate extends Component {
 
   render () {
     const {
-      width,
-      height,
+      custom_styles,
       state: {
         plate_is_loaded
       }
@@ -27,11 +26,8 @@ export default class LandingPagePlate extends Component {
           css={[
             {
               position: 'absolute',
-              width,
-              height,
-              left: '22vh',
-              top: '22vh'
-            }
+            },
+            custom_styles
           ]}
         >
           <div css={landing_page_plate_CSS} />
@@ -42,18 +38,56 @@ export default class LandingPagePlate extends Component {
 
   image = new Image()
 
-  get height () {
+  get custom_styles () {
     const {
+      props: {
+        is_landscape,
+        is_square,
+      },
       state: {
-        width, height
+        width,
+        height
       }
     } = this
+    if (is_landscape) {
+      if (is_square) {
+        return {
+          transform: 'translate(0, 0)',
+          top: window.innerHeight * 0.05,
+          left: window.innerWidth * 0.05,
+          width: (window.innerHeight * .3) * width / height,
+          height: window.innerHeight * .3
+        }
+      } else {
+        return {
+          transform: 'translate(0, 0)',
+          top: window.innerHeight * 0.05,
+          left: window.innerWidth * 0.05,
+          width: (window.innerHeight * .3) * width / height,
+          height: window.innerHeight * .3
+        }
 
-    return (height / width * 25) + 'vw'
-  }
+      }
+    } else {
+      if (is_square) {
+        return {
+          transform: 'translate(0, 0)',
+          top: window.innerHeight * 0.01,
+          left: window.innerWidth * 0.001,
+          width: (window.innerHeight * .25) * width / height,
+          height: window.innerHeight * .25
+        }
+      } else {
+        return {
+          transform: 'translate(-50%, 0)',
+          top: window.innerHeight * 0.01,
+          left: window.innerWidth * 0.5,
+          width: window.innerWidth * 0.64,
+          height: (window.innerWidth * 0.64) * height / width
+        }
 
-  get width () {
-    return '25vw'
+      }
+    }
   }
 
   _loadPlate () {
