@@ -59,8 +59,10 @@ export default class LandingPage extends Component {
           />
         </Fragment>
         }
+        {false &&
         <div
-          data-depth={'0.3'} css={landing_page_debug_CSS}
+          data-depth={'0.3'}
+          css={landing_page_debug_CSS}
         >
           <div>
             <h1>real width: {width}</h1>
@@ -78,6 +80,7 @@ export default class LandingPage extends Component {
             <h1>orientation: {orientation}</h1>
           </div>
         </div>
+        }
       </div>
     )
   }
