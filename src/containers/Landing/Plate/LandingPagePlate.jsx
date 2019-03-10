@@ -99,9 +99,10 @@ export default class LandingPagePlate extends Component {
   }
 
   _loadPlate () {
+    this.image.src = plate_image
 
-    this.image.onload = (e) => {
-      const img = e.target || e.path[0],
+    this.image.onload = () => {
+      const img = this.image,
         {width, height} = img
       this.setState(
         (state) => {
@@ -114,7 +115,6 @@ export default class LandingPagePlate extends Component {
         }
       )
     }
-    this.image.src = plate_image
     return this
   }
 
