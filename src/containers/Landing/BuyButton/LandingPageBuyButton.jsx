@@ -33,10 +33,14 @@ export default class LandingPageBuyButton extends Component {
             data-tc-token="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImlzcyI6InRpY2tldHNjbG91ZC5ydSJ9.eyJwIjoiNWM3N2U1MDQxYTZmMzAwMDBiMzI5NzFiIn0.Q54vAMt4dOLcbhkPKBzXJwVlr2zBASOIlJ7chmC1GV0"
             css={landing_page_buy_button_CSS}
             onClick={() => {
-              window.yaCounter49024811.reachGoal('buy_ticket_button')
-              window.ga('send', 'click', 'buy_ticket_button')
-              window.fbq('track', "Purchase", { content_name: 'Клик по кнопке купить билет', value: 0.00, currency: 'RUB'})
-              window.fbq('trackCustom', 'buy_ticket_button', {});
+              if (window.yaCounter49024811) window.yaCounter49024811.reachGoal('buy_ticket_button')
+              if (window.ga) window.ga('send', 'click', 'buy_ticket_button')
+              if (window.fbq) window.fbq('track', 'Purchase', {
+                content_name: 'Клик по кнопке купить билет',
+                value: 0.00,
+                currency: 'RUB'
+              })
+              if (window.fbq) window.fbq('trackCustom', 'buy_ticket_button', {})
 
             }}
           />
