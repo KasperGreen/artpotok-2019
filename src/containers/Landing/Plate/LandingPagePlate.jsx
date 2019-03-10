@@ -22,7 +22,7 @@ export default class LandingPagePlate extends Component {
     if (!plate_is_loaded) return false
 
     return (
-      <div>
+      <div {...{...this.props}}>
         <div
           css={[
             landing_page_plate_CSS,

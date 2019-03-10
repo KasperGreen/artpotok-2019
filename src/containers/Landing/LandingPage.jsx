@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component, createRef, Fragment } from 'react'
 import landing_wrapper_CSS from 'containers/Landing/_css/landing_wrapper_CSS'
 import background_portrait from './_images/background_portrait.png'
 import background_portrait_420 from './_images/background_portrait_420.png'
@@ -7,6 +7,8 @@ import background_landscape from './_images/background_landscape.png'
 import background_landscape_1400 from './_images/background_landscape_1400.png'
 import LandingPageBackground from 'containers/Landing/LandingPageBackground'
 import LandingPagePlate from 'containers/Landing/Plate/LandingPagePlate'
+import Parallax from 'parallax-js'
+import landing_page_debug_CSS from 'containers/Landing/_css/landing_page_debug_CSS'
 
 export default class LandingPage extends Component {
   state = {
@@ -31,26 +33,39 @@ export default class LandingPage extends Component {
       }
     } = this
     return (
-      <div css={landing_wrapper_CSS}>
+      <div
+        ref={this.wrapper_element}
+        css={landing_wrapper_CSS}
+      >
         {background_is_loaded &&
         <Fragment>
-          <LandingPageBackground {...{background_image: actual_background}} />
-          <LandingPagePlate />
+          <LandingPageBackground
+            data-depth={'0.025'}
+            {...{background_image: actual_background}} />
+          <LandingPagePlate
+            data-depth={'0.8'}
+          />
         </Fragment>
         }
-        <h1>real width: {width}</h1>
-        <h1>width: {window_width}</h1>
-        <h1>height: {window_height}</h1>
-        <h1>ratio: {ratio}</h1>
-        <h1>actual_background: {actual_background}</h1>
-        <h1>pixel ratio: {pixel_ratio}</h1>
-        {is_landscape &&
-        <h1>is_landscape</h1>
-        }
-        {is_portrait &&
-        <h1>is_portrait</h1>
-        }
-        <h1>orientation: {orientation}</h1>
+        <div
+          data-depth={'0.3'} css={landing_page_debug_CSS}
+        >
+          <div>
+            <h1>real width: {width}</h1>
+            <h1>width: {window_width}</h1>
+            <h1>height: {window_height}</h1>
+            <h1>ratio: {ratio}</h1>
+            <h1>actual_background: {actual_background}</h1>
+            <h1>pixel ratio: {pixel_ratio}</h1>
+            {is_landscape &&
+            <h1>is_landscape</h1>
+            }
+            {is_portrait &&
+            <h1>is_portrait</h1>
+            }
+            <h1>orientation: {orientation}</h1>
+          </div>
+        </div>
       </div>
     )
   }
@@ -68,8 +83,10 @@ export default class LandingPage extends Component {
       }
     }
   }
+  parallax_instanse
   resize_event_timeout_in_milliseconds = 108
   resize_event_timer = 0
+  wrapper_element = createRef()
 
   get actual_background () {
     const {
@@ -148,6 +165,17 @@ export default class LandingPage extends Component {
     return this
   }
 
+  _initParallax () {
+
+    setTimeout(() => {
+      this.parallax_instanse = new Parallax(this.wrapper_element.current, {
+        pointerEvents: true
+      })
+    }, 420)
+
+    return this
+  }
+
   _loadBackground () {
 
     const {
@@ -162,6 +190,8 @@ export default class LandingPage extends Component {
             ...state,
             background_is_loaded: true
           }
+        }, () => {
+          this._initParallax()
         }
       )
     }

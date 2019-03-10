@@ -10,14 +10,15 @@ export default class LandingPageBackground extends Component {
   render () {
     const {
       props: {
-        background_image
+        background_image,
+        ...other_props
       },
       state: {
         animation_in_end
       }
     } = this
     return (
-      <div css={landing_background_wrapper}>
+      <div css={landing_background_wrapper} {...{...other_props}}>
         <div
           ref={this.element}
           css={[
