@@ -11,5 +11,5 @@ export default css`
     background-size: contain;
    // transform: translateY(-150vw);
     animation: ${landing_page_logo_in_animation} 1.08s 1.42s ease-out forwards;
-    transform: translate3d(-5vw, 100vw, -120vw);;
+    transform: translate3d(-5vw, 140vw, -120vw);;
 `

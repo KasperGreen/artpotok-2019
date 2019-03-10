@@ -44,7 +44,7 @@ export default class LandingPage extends Component {
             data-depth={'0.025'}
             {...{background_image: actual_background}} />
           <LandingPageLogo
-            {...{is_landscape, ratio}}
+            {...{is_landscape, ratio, is_portrait}}
             data-depth={'0.12'}
           />
           <LandingPagePlate

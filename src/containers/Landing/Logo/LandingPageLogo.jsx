@@ -1,6 +1,12 @@
 import React, { Component } from 'react'
 import logo_image from './logo.png'
 import landing_page_logo_CSS from 'containers/Landing/Logo/landing_page_logo_CSS'
+import landing_page_logo_wrapper_CSS from 'containers/Landing/Logo/landing_page_logo_wrapper_CSS'
+import landing_page_logo_wrapper_wide_landscape_CSS
+  from 'containers/Landing/Logo/landing_page_logo_wrapper_wide_landscape_CSS'
+import landing_page_logo_wrapper_square_landscape_CSS
+  from 'containers/Landing/Logo/landing_page_logo_wrapper_square_landscape_CSS'
+import landing_page_logo_wrapper_portrait_CSS from 'containers/Landing/Logo/landing_page_logo_wrapper_portrait_CSS'
 
 export default class LandingPageLogo extends Component {
   state = {
@@ -13,6 +19,7 @@ export default class LandingPageLogo extends Component {
     const {
       width,
       height,
+      custom_styles,
       state: {
         is_loaded
       },
@@ -27,12 +34,11 @@ export default class LandingPageLogo extends Component {
       <div {...{...other_props}}>
         <div
           css={[
+            landing_page_logo_wrapper_CSS,
+            custom_styles,
             {
-              position: 'absolute',
               width,
-              height,
-              left: '50vh',
-              top: '10vh'
+              height
             }
           ]}
         >
@@ -44,7 +50,7 @@ export default class LandingPageLogo extends Component {
 
   image = new Image()
 
-  get height () {
+  get custom_styles () {
     const {
       props: {
         is_landscape,
@@ -52,24 +58,48 @@ export default class LandingPageLogo extends Component {
       }
     } = this
     if (is_landscape) {
-      if (ratio) {
-
+      if (ratio > 1.6) {
+        return landing_page_logo_wrapper_wide_landscape_CSS
+      } else {
+        return landing_page_logo_wrapper_square_landscape_CSS
       }
+    } else {
+      return landing_page_logo_wrapper_portrait_CSS
     }
   }
 
   get height () {
     const {
+      props: {
+        is_landscape,
+        ratio
+      },
       state: {
-        width, height
+        width, height,
       }
     } = this
-
-    return (height / width * 100) + 'vw'
+    if (is_landscape) {
+      return '90vh'
+    } else {
+      return `calc(${this.width} * ${height / width})`
+    }
   }
 
   get width () {
-    return '100vw'
+    const {
+      state: {
+        width, height,
+      },
+      props: {
+        is_landscape
+      }
+    } = this
+
+    if (is_landscape) {
+      return `calc(${this.height} * ${width / height})`
+    } else {
+      return '120vw'
+    }
   }
 
   _loadImage () {
