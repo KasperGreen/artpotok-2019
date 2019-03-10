@@ -82,9 +82,9 @@ export default class LandingPageLogo extends Component {
       }
     } = this
     if (is_landscape) {
-      return (window.innerHeight * .9) + 'px'
+      return (window.innerHeight * .9)
     } else {
-      return `calc(${this.width} * ${height / width})`
+      return this.width * height / width
     }
   }
 
@@ -99,9 +99,9 @@ export default class LandingPageLogo extends Component {
     } = this
 
     if (is_landscape) {
-      return `calc(${this.height} * ${width / height})`
+      return this.height * width / height
     } else {
-      return (window.innerWidth * 1.2) + 'px'
+      return (window.innerWidth * 1.2)
     }
   }
 
