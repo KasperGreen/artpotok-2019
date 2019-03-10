@@ -9,16 +9,20 @@ export default class LandingPageBuyButton extends Component {
     } = this
 
     return (
-      <div {...{...this.props}}>
+      <div {...{...this.props}} css={{zIndex: 999}}>
         <div
           css={[
             {
               position: 'absolute',
+              overflow: 'hidden'
             },
             custom_styles
           ]}
         >
-          <button css={landing_page_buy_button_CSS} />
+          <button
+            data-tc-event="5c792306e822ab000c35a1a9"
+            data-tc-token="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImlzcyI6InRpY2tldHNjbG91ZC5ydSJ9.eyJwIjoiNWM3N2U1MDQxYTZmMzAwMDBiMzI5NzFiIn0.Q54vAMt4dOLcbhkPKBzXJwVlr2zBASOIlJ7chmC1GV0"
+            css={landing_page_buy_button_CSS} />
         </div>
       </div>
     )
@@ -38,9 +42,10 @@ export default class LandingPageBuyButton extends Component {
         return {
           transform: 'translate(-50%, 20%)',
           top: window.innerHeight * 0.05 + window.innerHeight * .3,
-          left: (window.innerHeight * .3 * (420/248)) / 2 + window.innerWidth * 0.05,
+          left: (window.innerHeight * .3 * (420 / 248)) / 2 + window.innerWidth * 0.05,
           width: window.innerHeight * 0.42,
-          height: window.innerHeight * 0.08
+          height: window.innerHeight * 0.08,
+          borderRadius: (window.innerHeight * 0.08) / 2
         }
       } else {
         return {
