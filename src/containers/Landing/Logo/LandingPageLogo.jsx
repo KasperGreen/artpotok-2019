@@ -24,7 +24,9 @@ export default class LandingPageLogo extends Component {
         is_loaded
       },
       props: {
-        is_landscape, ratio,
+        is_landscape,
+        is_portrait,
+        ratio,
         ...other_props
       }
     } = this
@@ -72,6 +74,7 @@ export default class LandingPageLogo extends Component {
     const {
       props: {
         is_landscape,
+        is_portrait,
         ratio
       },
       state: {
@@ -79,7 +82,7 @@ export default class LandingPageLogo extends Component {
       }
     } = this
     if (is_landscape) {
-      return '90vh'
+      return (window.innerHeight * .9) + 'px'
     } else {
       return `calc(${this.width} * ${height / width})`
     }
@@ -98,7 +101,7 @@ export default class LandingPageLogo extends Component {
     if (is_landscape) {
       return `calc(${this.height} * ${width / height})`
     } else {
-      return '120vw'
+      return (window.innerWidth * 1.2) + 'px'
     }
   }
 
