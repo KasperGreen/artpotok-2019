@@ -95,9 +95,13 @@ export default class LandingPageLogo extends Component {
   }
 
   _loadImage () {
+    this.image.src = logo_image
 
     this.image.onload = (e) => {
-      const img = e.path[0],
+      console.log('%c →→→→ ', 'color: green', e, '← e | ')
+      console.log('%c →→→→ ', 'color: green', this.image, '← this.image | ')
+      
+      const img = e.target || e.path[0],
         {width, height} = img
       this.setState(
         (state) => {
@@ -110,7 +114,6 @@ export default class LandingPageLogo extends Component {
         }
       )
     }
-    this.image.src = logo_image
 
     return this
   }

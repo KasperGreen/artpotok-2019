@@ -6,10 +6,17 @@ export default class LandingPageBuyButton extends Component {
   render () {
     const {
       custom_styles,
+      props: {
+        is_landscape,
+        is_portrait,
+        is_square,
+        ratio,
+        ...other_props
+      }
     } = this
 
     return (
-      <div {...{...this.props}} css={{zIndex: 999}}>
+      <div {...{...other_props}} css={{zIndex: 999}}>
         <div
           css={[
             {

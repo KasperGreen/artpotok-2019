@@ -15,13 +15,21 @@ export default class LandingPagePlate extends Component {
       custom_styles,
       state: {
         plate_is_loaded
+      },
+      props: {
+        is_landscape,
+        is_portrait,
+        is_square,
+        ratio,
+        ...other_props
       }
+
     } = this
 
     if (!plate_is_loaded) return false
 
     return (
-      <div {...{...this.props}}>
+      <div {...{...other_props}}>
         <div
           css={[
             {
@@ -93,7 +101,7 @@ export default class LandingPagePlate extends Component {
   _loadPlate () {
 
     this.image.onload = (e) => {
-      const img = e.path[0],
+      const img = e.target || e.path[0],
         {width, height} = img
       this.setState(
         (state) => {
