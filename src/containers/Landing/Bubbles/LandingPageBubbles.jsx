@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import balloon_image from './balloon.png'
-import landing_page_balloon_wrapper_CSS from './landing_page_balloon_wrapper_CSS'
-import landing_page_balloon_CSS from './landing_page_balloon_CSS'
+import bubbles_image from './bubbles.png'
+import landing_page_bubbles_wrapper_CSS from 'containers/Landing/Bubbles/landing_page_bubbles_wrapper_CSS'
+import landing_page_bubbles_CSS from 'containers/Landing/Bubbles/landing_page_bubbles_CSS'
 
-export default class LandingPageBalloon extends Component {
+export default class LandingPageBubbles extends Component {
   state = {
     is_loaded: false,
     width: 0,
@@ -31,11 +31,11 @@ export default class LandingPageBalloon extends Component {
       <div {...{...other_props}}>
         <div
           css={[
-            landing_page_balloon_wrapper_CSS,
+            landing_page_bubbles_wrapper_CSS,
             custom_styles
           ]}
         >
-          <div css={landing_page_balloon_CSS} />
+          <div css={landing_page_bubbles_CSS} />
         </div>
       </div>
     )
@@ -57,38 +57,34 @@ export default class LandingPageBalloon extends Component {
     if (is_landscape) {
       if (is_square) {
         return {
-          transform: 'translate(0, 0)',
-          top: window.innerHeight * 0.05,
-          left: window.innerWidth * 0.9,
-          width: (window.innerHeight * .08) * width / height,
-          height: window.innerHeight * .08
+          transform: 'translate(-5%, -100%)',
+          top: window.innerHeight,
+          left: window.innerWidth - window.innerWidth * .8,
+          width: window.innerWidth * .8,
+          height: (window.innerWidth * .8) * height / width
         }
       } else {
         return {
-          transform: 'translate(-10%, 42%)',
-          top: (window.innerHeight * 0.05) + window.innerHeight * 0.08 * 2,
-          left: window.innerWidth - window.innerHeight * 0.42,
-          width: (window.innerHeight * .08) * width / height,
-          height: window.innerHeight * .08
+          transform: 'translate(-50%, -100%)',
+          top: window.innerHeight,
+          left: window.innerWidth * 0.5,
+          width: window.innerWidth * .64,
+          height: (window.innerWidth * .64) * height / width
         }
 
       }
     } else {
       if (is_square) {
         return {
-          transform: 'translate(-42%, 100%)',
-          top: window.innerHeight * 0.05,
-          left: window.innerWidth * 0.9,
-          width: (window.innerHeight * .05) * width / height,
-          height: window.innerHeight * .05
+          transform: 'translate(0, -100%)',
+          top: window.innerHeight,
+          left: window.innerWidth - window.innerWidth * .8,
+          width: window.innerWidth * .8,
+          height: (window.innerWidth * .8) * height / width
         }
       } else {
         return {
-          transform: 'translate(-50%, 0)',
-          top: window.innerHeight * 0.05,
-          left: window.innerWidth * 0.9,
-          width: (window.innerHeight * .05) * width / height,
-          height: window.innerHeight * .05
+          display: 'none'
         }
 
       }
@@ -96,7 +92,6 @@ export default class LandingPageBalloon extends Component {
   }
 
   _loadImage () {
-    this.image.src = balloon_image
 
     this.image.onload = () => {
       const img = this.image,
@@ -112,6 +107,8 @@ export default class LandingPageBalloon extends Component {
         }
       )
     }
+
+    this.image.src = bubbles_image
 
     return this
   }

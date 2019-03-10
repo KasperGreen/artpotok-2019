@@ -12,6 +12,7 @@ import landing_page_debug_CSS from 'containers/Landing/_css/landing_page_debug_C
 import LandingPageLogo from 'containers/Landing/Logo/LandingPageLogo'
 import LandingPageBuyButton from 'containers/Landing/BuyButton/LandingPageBuyButton'
 import LandingPageBalloon from 'containers/Landing/Baloon/LandingPageBalloon'
+import LandingPageBubbles from 'containers/Landing/Bubbles/LandingPageBubbles'
 
 export default class LandingPage extends Component {
   state = {
@@ -60,6 +61,10 @@ export default class LandingPage extends Component {
           />
           <LandingPagePlate
             data-depth={'0.18'}
+            {...{is_landscape, ratio, is_portrait, is_square}}
+          />
+          <LandingPageBubbles
+            data-depth={'0.25'}
             {...{is_landscape, ratio, is_portrait, is_square}}
           />
         </Fragment>
