@@ -25,13 +25,17 @@ export default class LandingPagePlate extends Component {
       <div {...{...this.props}}>
         <div
           css={[
-            landing_page_plate_CSS,
             {
+              position: 'absolute',
               width,
-              height
+              height,
+              left: '22vh',
+              top: '22vh'
             }
           ]}
-        ></div>
+        >
+          <div css={landing_page_plate_CSS} />
+        </div>
       </div>
     )
   }

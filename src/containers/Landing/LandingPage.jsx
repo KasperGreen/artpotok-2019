@@ -43,7 +43,7 @@ export default class LandingPage extends Component {
             data-depth={'0.025'}
             {...{background_image: actual_background}} />
           <LandingPagePlate
-            data-depth={'0.8'}
+            data-depth={'0.18'}
           />
         </Fragment>
         }
@@ -83,7 +83,7 @@ export default class LandingPage extends Component {
       }
     }
   }
-  parallax_instanse
+  parallax_instance
   resize_event_timeout_in_milliseconds = 108
   resize_event_timer = 0
   wrapper_element = createRef()
@@ -168,7 +168,7 @@ export default class LandingPage extends Component {
   _initParallax () {
 
     setTimeout(() => {
-      this.parallax_instanse = new Parallax(this.wrapper_element.current, {
+      this.parallax_instance = new Parallax(this.wrapper_element.current, {
         pointerEvents: true
       })
     }, 420)
