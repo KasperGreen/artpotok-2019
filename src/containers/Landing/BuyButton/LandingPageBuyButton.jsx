@@ -21,9 +21,6 @@ export default class LandingPageBuyButton extends Component {
           css={[
             {
               position: 'absolute',
-              overflow: 'hidden',
-              borderRadius: (window.innerHeight * 0.08) / 2
-
             },
             custom_styles
           ]}
@@ -31,7 +28,12 @@ export default class LandingPageBuyButton extends Component {
           <button
             data-tc-event="5c792306e822ab000c35a1a9"
             data-tc-token="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImlzcyI6InRpY2tldHNjbG91ZC5ydSJ9.eyJwIjoiNWM3N2U1MDQxYTZmMzAwMDBiMzI5NzFiIn0.Q54vAMt4dOLcbhkPKBzXJwVlr2zBASOIlJ7chmC1GV0"
-            css={landing_page_buy_button_CSS}
+            css={[
+              landing_page_buy_button_CSS,
+              {
+                borderRadius: `${custom_styles.height / 2}px !important`
+              }
+            ]}
             onClick={() => {
               if (window.yaCounter49024811) window.yaCounter49024811.reachGoal('buy_ticket_button')
               if (window.ga) window.ga('send', 'click', 'buy_ticket_button')

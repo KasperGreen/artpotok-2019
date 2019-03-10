@@ -2,7 +2,7 @@ import { keyframes } from '@emotion/core'
 
 export default keyframes`
     from {
-      transform: translate3d(-10vw, -100vw, 25vw) scale(.3);
+      transform: translate3d(30vw, -25vw, -100vw) scale(.1);
       opacity: .8;
     }
     to {
