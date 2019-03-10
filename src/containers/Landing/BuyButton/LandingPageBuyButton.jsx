@@ -51,9 +51,9 @@ export default class LandingPageBuyButton extends Component {
         }
       } else {
         return {
-          transform: 'translate(0, 0)',
+          transform: 'translate(-110%, 100%)',
           top: window.innerHeight * 0.05,
-          left: window.innerWidth * 0.05,
+          left: window.innerWidth,
           width: window.innerHeight * 0.42,
           height: window.innerHeight * 0.08
         }
