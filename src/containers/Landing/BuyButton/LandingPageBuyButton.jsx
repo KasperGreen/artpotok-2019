@@ -14,7 +14,9 @@ export default class LandingPageBuyButton extends Component {
           css={[
             {
               position: 'absolute',
-              overflow: 'hidden'
+              overflow: 'hidden',
+              borderRadius: (window.innerHeight * 0.08) / 2
+
             },
             custom_styles
           ]}
@@ -22,7 +24,8 @@ export default class LandingPageBuyButton extends Component {
           <button
             data-tc-event="5c792306e822ab000c35a1a9"
             data-tc-token="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImlzcyI6InRpY2tldHNjbG91ZC5ydSJ9.eyJwIjoiNWM3N2U1MDQxYTZmMzAwMDBiMzI5NzFiIn0.Q54vAMt4dOLcbhkPKBzXJwVlr2zBASOIlJ7chmC1GV0"
-            css={landing_page_buy_button_CSS} />
+            css={landing_page_buy_button_CSS}
+          />
         </div>
       </div>
     )
@@ -45,7 +48,6 @@ export default class LandingPageBuyButton extends Component {
           left: (window.innerHeight * .3 * (420 / 248)) / 2 + window.innerWidth * 0.05,
           width: window.innerHeight * 0.42,
           height: window.innerHeight * 0.08,
-          borderRadius: (window.innerHeight * 0.08) / 2
         }
       } else {
         return {
@@ -60,11 +62,11 @@ export default class LandingPageBuyButton extends Component {
     } else {
       if (is_square) {
         return {
-          transform: 'translate(0, 0)',
-          top: window.innerHeight * 0.01,
-          left: window.innerWidth * 0.001,
-          width: window.innerHeight * 0.42,
-          height: window.innerHeight * 0.08
+          transform: 'translate(-50%, 20%)',
+          top: (window.innerHeight * 0.01) + window.innerHeight * .25,
+          left: window.innerWidth * 0.001 + ((window.innerHeight * .25) * 420 / 248 / 2),
+          width: window.innerHeight * 0.42 / 2,
+          height: window.innerHeight * 0.08 / 2
         }
       } else {
         return {

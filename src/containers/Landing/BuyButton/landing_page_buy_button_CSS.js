@@ -3,6 +3,7 @@ import landing_page_buy_button_in_animation from 'containers/Landing/BuyButton/l
 import buy_button_text_image from './buy_button_text.png'
 
 export default css`
+display: block;
     position: absolute;
     left: 0;
     top: 0;
@@ -18,7 +19,6 @@ export default css`
         box-shadow: 0 0 1px #201434;
         outline: none;
         transform: scale(1.02);
-        opacity: 1;
     }
     &:active {
       box-shadow: 2px -1px 3px #201434;
@@ -32,7 +32,7 @@ export default css`
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 100%;
+      width: 80%;
       height: 64%;
       background: center center no-repeat url(${buy_button_text_image});
       background-size: contain;
