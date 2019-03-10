@@ -1,7 +1,14 @@
 import React, { Component } from 'react'
 import landing_page_buy_button_CSS from 'containers/Landing/BuyButton/landing_page_buy_button_CSS'
+import logo_image from 'containers/Landing/Logo/logo.png'
 
 export default class LandingPageBuyButton extends Component {
+
+  state = {
+    is_loaded: false,
+    width: 0,
+    height: 0
+  }
 
   render () {
     const {
@@ -12,8 +19,13 @@ export default class LandingPageBuyButton extends Component {
         is_square,
         ratio,
         ...other_props
+      },
+      state: {
+        is_loaded
       }
     } = this
+
+    if (!is_loaded) return false
 
     return (
       <div {...{...other_props}} css={{zIndex: 999}}>
@@ -99,6 +111,35 @@ export default class LandingPageBuyButton extends Component {
 
       }
     }
+  }
+
+  _loadImage () {
+    this.image.src = logo_image
+
+    this.image.onload = () => {
+      const img = this.image,
+        {width, height} = img
+      this.setState(
+        (state) => {
+          return {
+            ...state,
+            is_loaded: true,
+            width,
+            height
+          }
+        }
+      )
+    }
+
+    return this
+  }
+
+  componentDidMount () {
+    this._loadImage()
+  }
+
+  componentWillUnmount () {
+    this.image.onload = () => {}
   }
 
 }

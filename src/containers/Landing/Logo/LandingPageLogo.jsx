@@ -94,6 +94,10 @@ export default class LandingPageLogo extends Component {
     }
   }
 
+
+  image = new Image()
+
+
   _loadImage () {
     this.image.src = logo_image
 

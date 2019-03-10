@@ -40,8 +40,6 @@ export default class LandingPageBackground extends Component {
 
   componentDidMount () {
     this.element.current.addEventListener('animationend', () => {
-      console.log('%c →→→→ ', 'color: green', ' animation_end!←  | ')
-
       this.setState(
         (state) => {
           return {
@@ -50,6 +48,6 @@ export default class LandingPageBackground extends Component {
           }
         }
       )
-    })
+    }, {once: true})
   }
 }
