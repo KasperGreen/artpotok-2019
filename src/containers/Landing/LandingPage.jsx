@@ -132,7 +132,7 @@ export default class LandingPage extends Component {
   }
 
   get is_square () {
-    return this.ratio < 1.6
+    return this.ratio < 1.5
   }
 
   get orientation () {
