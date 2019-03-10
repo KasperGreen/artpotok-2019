@@ -6,4 +6,5 @@ export default css`
     height: 100%;
     left: 0;
     top: 0;
+    perspective: 1200px;
 `

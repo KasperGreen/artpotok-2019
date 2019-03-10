@@ -9,6 +9,7 @@ import LandingPageBackground from 'containers/Landing/LandingPageBackground'
 import LandingPagePlate from 'containers/Landing/Plate/LandingPagePlate'
 import Parallax from 'parallax-js'
 import landing_page_debug_CSS from 'containers/Landing/_css/landing_page_debug_CSS'
+import LandingPageLogo from 'containers/Landing/Logo/LandingPageLogo'
 
 export default class LandingPage extends Component {
   state = {
@@ -42,6 +43,10 @@ export default class LandingPage extends Component {
           <LandingPageBackground
             data-depth={'0.025'}
             {...{background_image: actual_background}} />
+          <LandingPageLogo
+            {...{is_landscape, ratio}}
+            data-depth={'0.12'}
+          />
           <LandingPagePlate
             data-depth={'0.18'}
           />

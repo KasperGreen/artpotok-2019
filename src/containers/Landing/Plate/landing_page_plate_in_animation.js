@@ -8,5 +8,6 @@ export default keyframes`
     to {
       transform: translateY(0, 0, 0) scale(1);
       opacity: 1;
+     
     }
 `
