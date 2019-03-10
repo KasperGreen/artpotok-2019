@@ -14,11 +14,19 @@ display: block;
     box-shadow: none;
     transition: all .12s ease-in;
     cursor: pointer;
+    opacity: 1 !important;
     animation: ${landing_page_buy_button_in_animation} 1.42s cubic-bezier(.11, .22, 0.64, 1.42);
     &:hover {
         box-shadow: 0 0 1px #201434;
         outline: none;
         transform: scale(1.02);
+    }
+    &:focus {
+        box-shadow: 0 0 1px #201434;
+        transform: scale(1.02);
+        filter: hue-rotate(5deg);
+        outline: none !important;
+
     }
     &:active {
       box-shadow: 2px -1px 3px #201434;

@@ -11,6 +11,7 @@ import Parallax from 'parallax-js'
 import landing_page_debug_CSS from 'containers/Landing/_css/landing_page_debug_CSS'
 import LandingPageLogo from 'containers/Landing/Logo/LandingPageLogo'
 import LandingPageBuyButton from 'containers/Landing/BuyButton/LandingPageBuyButton'
+import LandingPageBalloon from 'containers/Landing/Baloon/LandingPageBalloon'
 
 export default class LandingPage extends Component {
   state = {
@@ -45,6 +46,10 @@ export default class LandingPage extends Component {
           <LandingPageBackground
             data-depth={'0.025'}
             {...{background_image: actual_background}} />
+          <LandingPageBalloon
+            data-depth={'0.05'}
+            {...{is_landscape, ratio, is_portrait, is_square}}
+          />
           <LandingPageBuyButton
             data-depth={'0.10'}
             {...{is_landscape, ratio, is_portrait, is_square}}
@@ -188,7 +193,11 @@ export default class LandingPage extends Component {
 
     setTimeout(() => {
       this.parallax_instance = new Parallax(this.wrapper_element.current, {
-        pointerEvents: true
+        pointerEvents: true,
+        frictionX: 0.1,
+        frictionY: 0.1,
+        scalarX: 25,
+        scalarY: 15
       })
     }, 420)
 
