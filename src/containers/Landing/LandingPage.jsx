@@ -200,12 +200,12 @@ export default class LandingPage extends Component {
     setTimeout(() => {
       this.parallax_instance = new Parallax(this.wrapper_element.current, {
         pointerEvents: true,
-        frictionX: 0.25,
-        frictionY: 0.42,
+        frictionX: 0.2,
+        frictionY: 0.2,
         scalarX: 25,
         scalarY: 15,
-        limitX: 32,
-        limitY: 42
+        limitX: window.innerWidth / 8,
+        limitY: window.innerHeight / 8
       })
     }, 420)
 
