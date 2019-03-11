@@ -202,8 +202,8 @@ export default class LandingPage extends Component {
         pointerEvents: true,
         frictionX: 0.1,
         frictionY: 0.1,
-        scalarX: 2,
-        scalarY: 2
+        scalarX: 5,
+        scalarY: 5
       })
     }, 420)
 
