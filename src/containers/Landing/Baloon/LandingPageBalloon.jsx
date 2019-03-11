@@ -96,7 +96,6 @@ export default class LandingPageBalloon extends Component {
   }
 
   _loadImage () {
-    this.image.src = balloon_image
 
     this.image.onload = () => {
       const img = this.image,
@@ -112,6 +111,9 @@ export default class LandingPageBalloon extends Component {
         }
       )
     }
+
+    this.image.src = balloon_image
+
 
     return this
   }

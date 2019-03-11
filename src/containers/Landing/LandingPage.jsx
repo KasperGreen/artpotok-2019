@@ -28,6 +28,7 @@ export default class LandingPage extends Component {
       is_portrait,
       ratio,
       pixel_ratio,
+      reInitParallax,
       width,
       actual_background,
       is_square,
@@ -245,6 +246,11 @@ export default class LandingPage extends Component {
 
   componentWillUnmount () {
     this._removeResizeEvent()
+  }
+
+  reInitParallax = () => {
+    this.parallax_instance.destroy()
+    this._initParallax()
   }
 
   resizeEvent = () => {

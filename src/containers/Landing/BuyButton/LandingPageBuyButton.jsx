@@ -114,7 +114,6 @@ export default class LandingPageBuyButton extends Component {
   }
 
   _loadImage () {
-    this.image.src = logo_image
 
     this.image.onload = () => {
       const img = this.image,
@@ -130,6 +129,9 @@ export default class LandingPageBuyButton extends Component {
         }
       )
     }
+
+    this.image.src = logo_image
+
 
     return this
   }

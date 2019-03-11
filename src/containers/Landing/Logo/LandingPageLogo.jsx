@@ -95,7 +95,6 @@ export default class LandingPageLogo extends Component {
   }
 
   _loadImage () {
-    this.image.src = logo_image
 
     this.image.onload = () => {
       const img = this.image,
@@ -111,6 +110,8 @@ export default class LandingPageLogo extends Component {
         }
       )
     }
+
+    this.image.src = logo_image
 
     return this
   }

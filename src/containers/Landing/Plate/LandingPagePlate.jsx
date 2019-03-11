@@ -99,7 +99,6 @@ export default class LandingPagePlate extends Component {
   }
 
   _loadPlate () {
-    this.image.src = plate_image
 
     this.image.onload = () => {
       const img = this.image,
@@ -115,6 +114,9 @@ export default class LandingPagePlate extends Component {
         }
       )
     }
+
+    this.image.src = plate_image
+
     return this
   }
 
