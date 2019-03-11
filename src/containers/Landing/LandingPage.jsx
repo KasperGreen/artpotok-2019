@@ -238,9 +238,6 @@ export default class LandingPage extends Component {
 
   _reInitParallax = () => {
     if (!this.parallax_instance) return this
-    console.log('%c →→→→ ', 'color: green', this.parallax_instance, '← this.parallax_instance | ')
-
-    window.ololo = this.parallax_instance
     this._initParallax()
     return this
   }
@@ -253,6 +250,10 @@ export default class LandingPage extends Component {
   componentDidMount () {
     this._addResizeEvent()
         ._loadBackground()
+  }
+
+  componentWillUnmount () {
+    this.parallax_instance.destroy()
   }
 
   componentWillUnmount () {
