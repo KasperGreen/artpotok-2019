@@ -9,5 +9,8 @@ export default css`
     top: 0;
     > * {
       will-change: transform;
+      top: 0;
+      left: 0;
+      position: absolute;
     }
 `
