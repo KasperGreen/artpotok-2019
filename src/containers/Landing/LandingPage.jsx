@@ -28,7 +28,7 @@ export default class LandingPage extends Component {
       is_portrait,
       ratio,
       pixel_ratio,
-      reInitParallax,
+      _reInitParallax,
       width,
       actual_background,
       is_square,
@@ -58,15 +58,15 @@ export default class LandingPage extends Component {
           />
           <LandingPageLogo
             data-depth={'0.12'}
-            {...{is_landscape, ratio, is_portrait, is_square}}
+            {...{is_landscape, ratio, is_portrait, is_square, _reInitParallax}}
           />
           <LandingPagePlate
             data-depth={'0.18'}
-            {...{is_landscape, ratio, is_portrait, is_square}}
+            {...{is_landscape, ratio, is_portrait, is_square, _reInitParallax}}
           />
           <LandingPageBubbles
             data-depth={'0.25'}
-            {...{is_landscape, ratio, is_portrait, is_square}}
+            {...{is_landscape, ratio, is_portrait, is_square, _reInitParallax}}
           />
         </Fragment>
         }
@@ -236,6 +236,13 @@ export default class LandingPage extends Component {
     return this
   }
 
+  _reInitParallax = () => {
+    if (!this.parallax_instance) return this
+    this.parallax_instance.destroy()
+    this._initParallax()
+    return this
+  }
+
   _removeResizeEvent () {
     window.removeEventListener('resize', this.resizeEvent)
     return this
@@ -250,11 +257,6 @@ export default class LandingPage extends Component {
     this._removeResizeEvent()
   }
 
-  reInitParallax = () => {
-    this.parallax_instance.destroy()
-    this._initParallax()
-  }
-
   resizeEvent = () => {
     clearTimeout(this.resize_event_timer)
     setTimeout(() => {
@@ -265,6 +267,8 @@ export default class LandingPage extends Component {
             window_width: window.innerWidth,
             window_height: window.innerHeight
           }
+        }, () => {
+          this._reInitParallax()
         }
       )
     }, this.resize_event_timeout_in_milliseconds)

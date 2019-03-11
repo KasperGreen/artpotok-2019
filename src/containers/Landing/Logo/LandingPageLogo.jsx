@@ -95,6 +95,11 @@ export default class LandingPageLogo extends Component {
   }
 
   _loadImage () {
+    const {
+      props: {
+        _reInitParallax
+      }
+    } = this
 
     this.image.onload = () => {
       const img = this.image,
@@ -107,6 +112,8 @@ export default class LandingPageLogo extends Component {
             width,
             height
           }
+        }, () => {
+          _reInitParallax()
         }
       )
     }

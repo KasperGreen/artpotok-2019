@@ -99,6 +99,11 @@ export default class LandingPagePlate extends Component {
   }
 
   _loadPlate () {
+    const {
+      props: {
+        _reInitParallax
+      }
+    } = this
 
     this.image.onload = () => {
       const img = this.image,
@@ -111,6 +116,8 @@ export default class LandingPagePlate extends Component {
             width,
             height
           }
+        }, () => {
+          _reInitParallax()
         }
       )
     }

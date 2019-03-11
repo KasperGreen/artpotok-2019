@@ -92,6 +92,11 @@ export default class LandingPageBubbles extends Component {
   }
 
   _loadImage () {
+    const {
+      props: {
+        _reInitParallax
+      }
+    } = this
 
     this.image.onload = () => {
       const img = this.image,
@@ -104,6 +109,8 @@ export default class LandingPageBubbles extends Component {
             width,
             height
           }
+        }, () => {
+          _reInitParallax()
         }
       )
     }
