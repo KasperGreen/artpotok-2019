@@ -39,7 +39,7 @@ export default class LandingPage extends Component {
       }
     } = this
     return (
-      <label
+      <div
         ref={this.wrapper_element}
         css={landing_wrapper_CSS}
       >
@@ -92,7 +92,7 @@ export default class LandingPage extends Component {
           </div>
         </div>
         }
-      </label>
+      </div>
     )
   }
 
