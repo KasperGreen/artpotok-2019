@@ -254,9 +254,6 @@ export default class LandingPage extends Component {
 
   componentWillUnmount () {
     this.parallax_instance.destroy()
-  }
-
-  componentWillUnmount () {
     this._removeResizeEvent()
   }
 

@@ -21,6 +21,7 @@ export default class LandingPageBubbles extends Component {
         is_portrait,
         ratio,
         is_square,
+        _reInitParallax,
         ...other_props
       }
     } = this

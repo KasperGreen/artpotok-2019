@@ -21,6 +21,7 @@ export default class LandingPagePlate extends Component {
         is_portrait,
         is_square,
         ratio,
+        _reInitParallax,
         ...other_props
       }
 
