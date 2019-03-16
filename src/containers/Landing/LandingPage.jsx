@@ -143,6 +143,45 @@ export default class LandingPage extends Component {
     }
   }
 
+  get alternative_background () {
+    const {
+      is_landscape,
+      height,
+      images: {
+        background: {
+          portrait,
+          landscape
+        }
+      }
+    } = this
+
+    if (is_landscape) {
+      if (height <= 420) {
+        return portrait[420]
+      } else if (height <= 720) {
+        return portrait[720]
+      } else {
+        return portrait.big
+      }
+    } else {
+      if (height <= 1400) {
+        return landscape[1400]
+      } else {
+        return landscape.big
+      }
+    }
+  }
+
+  get height () {
+    const {
+      pixel_ratio,
+      state: {
+        window_height
+      }
+    } = this
+    return window_height * pixel_ratio
+  }
+
   get is_landscape () {
     return this.orientation === 'landscape'
   }
@@ -212,6 +251,13 @@ export default class LandingPage extends Component {
     return this
   }
 
+  _loadAlternativeBackground = () => {
+    const {
+      alternative_background
+    } = this
+    new Image().src = alternative_background
+  }
+
   _loadBackground () {
 
     const {
@@ -228,6 +274,7 @@ export default class LandingPage extends Component {
           }
         }, () => {
           this._initParallax()
+              ._loadAlternativeBackground()
         }
       )
     }
