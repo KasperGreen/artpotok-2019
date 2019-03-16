@@ -3,7 +3,7 @@ import landing_background_in_animation from 'containers/Landing/_animations/land
 
 export default css`
 position: absolute;
-transition: all 1.08s ease-out;
+transition: all .12s cubic-bezier(0,0,0,.99);
 width: 100%;
 height: 100%;
 left: 50%;
