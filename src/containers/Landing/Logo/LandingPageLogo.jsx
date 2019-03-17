@@ -1,11 +1,13 @@
-import React, { Component } from 'react'
+import React, { Component, createRef } from 'react'
 import logo_image from './logo.png'
 import landing_page_logo_CSS from 'containers/Landing/Logo/landing_page_logo_CSS'
 import landing_page_logo_wrapper_CSS from 'containers/Landing/Logo/landing_page_logo_wrapper_CSS'
+import landing_wave_animation from 'containers/Landing/Logo/landing_logo_wave_animation'
 
 export default class LandingPageLogo extends Component {
   state = {
     is_loaded: false,
+    is_in_animation_end: false,
     width: 0,
     height: 0
   }
@@ -14,7 +16,8 @@ export default class LandingPageLogo extends Component {
     const {
       custom_styles,
       state: {
-        is_loaded
+        is_loaded,
+        is_in_animation_end
       },
       props: {
         is_landscape,
@@ -29,18 +32,31 @@ export default class LandingPageLogo extends Component {
     if (!is_loaded) return false
     return (
       <div {...{...other_props}}>
-        <div
-          css={[
-            landing_page_logo_wrapper_CSS,
-            custom_styles
-          ]}
-        >
-          <div css={landing_page_logo_CSS} />
+        <div>
+          <div
+            css={[
+              landing_page_logo_wrapper_CSS,
+              custom_styles
+            ]}
+          >
+
+            <div
+              ref={this.element}
+              css={
+                [
+                  landing_page_logo_CSS,
+                  is_in_animation_end && {
+                    animation: `${landing_wave_animation} 4.2s linear infinite`
+                  }
+                ]}
+            />
+          </div>
         </div>
       </div>
     )
   }
 
+  element = createRef()
   image = new Image()
 
   get custom_styles () {
@@ -114,6 +130,21 @@ export default class LandingPageLogo extends Component {
             height
           }
         }, () => {
+          this.element.current.addEventListener(
+            'animationend',
+            () => {
+              this.setState(
+                (state) => {
+                  return {
+                    ...state,
+                    is_in_animation_end: true
+                  }
+                }
+              )
+            },
+            {
+              once: true
+            })
           _reInitParallax()
         }
       )
@@ -126,6 +157,7 @@ export default class LandingPageLogo extends Component {
 
   componentDidMount () {
     this._loadImage()
+
   }
 
   componentWillUnmount () {

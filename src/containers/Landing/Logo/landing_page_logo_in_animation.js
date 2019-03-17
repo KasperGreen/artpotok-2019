@@ -10,7 +10,7 @@ export default keyframes`
       opacity: .95;
     }
     to {
-      transform: translate3d(0, 0, 0);
+      transform: rotateZ(360deg) translate3d(.42%,0%,0) rotateZ(-360deg);
       opacity: 1;
     }
 `

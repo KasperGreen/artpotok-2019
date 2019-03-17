@@ -14,12 +14,6 @@ class App extends Component {
         <ThemeProvider theme={theme}>
           <Fragment>
             <Global styles={root_CSS} />
-            <Route
-              render={(route_props) => {
-                console.log('%c →→→→ ', 'color: green', route_props, '← route_props | ')
-                return null
-              }}
-            />
             <Switch>
               <Route path={'/'} component={LandingPage} />
             </Switch>
