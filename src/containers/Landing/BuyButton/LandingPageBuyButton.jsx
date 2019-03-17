@@ -102,11 +102,11 @@ export default class LandingPageBuyButton extends Component {
         }
       } else {
         return {
-          transform: 'translate(-50%, 0)',
-          top: (window.innerHeight * 0.55 + (window.innerWidth * 1.2) * 1243 / 942) / 2,
+          transform: 'translate(-50%, -150%)',
+          top: window.innerHeight * 1,
           left: window.innerWidth * 0.5,
-          width: window.innerHeight * 0.42,
-          height: window.innerHeight * 0.08
+          width: window.innerWidth * 0.8,
+          height: window.innerWidth * 0.16
         }
 
       }
@@ -131,7 +131,6 @@ export default class LandingPageBuyButton extends Component {
     }
 
     this.image.src = logo_image
-
 
     return this
   }

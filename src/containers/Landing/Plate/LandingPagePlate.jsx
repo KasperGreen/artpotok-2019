@@ -91,8 +91,8 @@ export default class LandingPagePlate extends Component {
           transform: 'translate(-50%, 0)',
           top: window.innerHeight * 0.01,
           left: window.innerWidth * 0.5,
-          width: window.innerWidth * 0.64,
-          height: (window.innerWidth * 0.64) * height / width
+          width: window.innerHeight * 0.2 * (width / height),
+          height: window.innerHeight * 0.2
         }
 
       }

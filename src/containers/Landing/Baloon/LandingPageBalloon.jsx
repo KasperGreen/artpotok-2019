@@ -65,9 +65,9 @@ export default class LandingPageBalloon extends Component {
         }
       } else {
         return {
-          transform: 'translate(-10%, 42%)',
+          transform: 'translate(0, 20%)',
           top: (window.innerHeight * 0.05) + window.innerHeight * 0.08 * 2,
-          left: window.innerWidth - window.innerHeight * 0.42,
+          left: window.innerWidth * .5 + window.innerHeight * 0.36,
           width: (window.innerHeight * .08) * width / height,
           height: window.innerHeight * .08
         }

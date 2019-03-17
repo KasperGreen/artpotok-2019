@@ -103,8 +103,8 @@ export default class LandingPageLogo extends Component {
           transform: 'translate(-50%, -50%)',
           top: window.innerHeight * 0.55,
           left: window.innerWidth * 0.5,
-          width: window.innerWidth * 1.2,
-          height: (window.innerWidth * 1.2) * height / width
+          width: window.innerHeight * .64 * (width / height),
+          height: window.innerHeight * .64
         }
 
       }
