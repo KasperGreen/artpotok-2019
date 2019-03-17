@@ -13,6 +13,7 @@ import LandingPageLogo from 'containers/Landing/Logo/LandingPageLogo'
 import LandingPageBuyButton from 'containers/Landing/BuyButton/LandingPageBuyButton'
 import LandingPageBalloon from 'containers/Landing/Baloon/LandingPageBalloon'
 import LandingPageBubbles from 'containers/Landing/Bubbles/LandingPageBubbles'
+import LandingPagePainterOne from 'containers/Landing/PainterOne/LandingPagePainterOne'
 
 export default class LandingPage extends Component {
   state = {
@@ -58,6 +59,10 @@ export default class LandingPage extends Component {
           />
           <LandingPageLogo
             data-depth={'0.12'}
+            {...{is_landscape, ratio, is_portrait, is_square, _reInitParallax}}
+          />
+          <LandingPagePainterOne
+            data-depth={'0.16'}
             {...{is_landscape, ratio, is_portrait, is_square, _reInitParallax}}
           />
           <LandingPagePlate
